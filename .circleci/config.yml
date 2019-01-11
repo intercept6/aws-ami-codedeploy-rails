@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hashicorp/packer:light
+    steps:
+      - checkout
+      - run:
+          name: Environment name setting
+          command: if [ $CIRCLE_BRANCH='master' ]; then ENV=prd;  else ENV=$CIRCLE_BRANCH; fi
+      - run:
+          name: Validate
+          command: packer validate template.json
+      - run:
+          name: Build
+          command: packer build template.json
