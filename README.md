@@ -19,12 +19,8 @@ OSはAmazon Linux2です｡
 
 ### テスト
 
-```
-packer validate template.json
-```
+    packer validate template.json
 
 ### デプロイ
 
-```
-packer build template.json
-```
+    packer build template.json
