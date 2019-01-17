@@ -12,5 +12,6 @@ jobs:
           name: Build
           command: |
             echo "Brach name is ${CIRCLE_BRANCH}"
-            if [ $CIRCLE_BRANCH='master' ]; then export ENV=prd; else export ENV=$CIRCLE_BRANCH; fi
+            if [ ${CIRCLE_BRANCH} = 'master' ]; then export ENV=prd; else export ENV=$CIRCLE_BRANCH; fi
+            echo "ENV is ${ENV}"
             packer build template.json
