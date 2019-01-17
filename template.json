@@ -23,6 +23,7 @@
       "ssh_timeout": "5m",
       "ami_name": "{{user `env`}}-codedeploy-ruby{{user `ruby_version`}}-{{isotime | clean_ami_name}}",
       "tags": {
+        "Name": "{{user `env`}}-codedeploy-ruby{{user `ruby_version`}}-{{isotime | clean_ami_name}}",
         "Base_AMI_ID": "{{ .SourceAMI }}",
         "Base_AMI_name": "{{ .SourceAMIName }}",
         "Ruby_version": "{{user `ruby_version`}}"
