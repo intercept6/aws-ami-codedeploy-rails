@@ -11,5 +11,5 @@ jobs:
       - run:
           name: Build
           command: |
-          if [ $CIRCLE_BRANCH='master' ]; then export ENV=prd; else export ENV=$CIRCLE_BRANCH; fi
-          packer build template.json
+            if [ $CIRCLE_BRANCH='master' ]; then export ENV=prd; else export ENV=$CIRCLE_BRANCH; fi
+            packer build template.json
