@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hashicorp/packer:light
+    steps:
+      - checkout
+      - run:
+          name: Validate
+          command: packer validate template.json
+      - run:
+          name: Build
+          command: |
+            echo "Brach name is ${CIRCLE_BRANCH}"
+            if [ ${CIRCLE_BRANCH} = 'master' ]; then export ENV=prd; else export ENV=$CIRCLE_BRANCH; fi
+            echo "ENV is ${ENV}"
+            packer build template.json
