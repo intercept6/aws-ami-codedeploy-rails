@@ -9,6 +9,9 @@ jobs:
           name: Environment name setting
           command: if [ $CIRCLE_BRANCH='master' ]; then export ENV=prd;  else export ENV=$CIRCLE_BRANCH; fi
       - run:
+          name: Debug
+          command: echo $ENV
+      - run:
           name: Validate
           command: packer validate template.json
       - run:
